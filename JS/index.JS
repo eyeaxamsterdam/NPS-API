@@ -4,8 +4,8 @@ const url = 'https://developer.nps.gov/api/v1/parks';
 
 
 
-function getResults(search, search2, maxResults) {
-    fetch(`${url}?stateCode=${search},${search2}&limit=${maxResults}&api_key=${apikey}`)
+function getResults(search, search2, search3, maxResults) {
+    fetch(`${url}?stateCode=${search},${search2},${search3}&limit=${maxResults}&api_key=${apikey}`)
     .then(response => response.json())
     .then (json => {
         console.log(json);
@@ -23,29 +23,50 @@ function getResults(search, search2, maxResults) {
 }
 
 function displayresults(results, description, website) {
-    $('.results').append(`<h3>${results}</h3>
+    $('.searchresults').append(`<h3>${results}</h3>
     <p>${description}</p><p><a href="${website}" target="_blank">Park Website</a></p>`)
 }
 
 
-$('.removeState').on('click', function() {
-    $('.removeState, .states2').hide();
-    $('.addState').show();
+$('.removeState').on('click', function(e) {
+    e.preventDefault();
+    if ($('.states3').is(':visible')) {
+        $('.states3').hide();
+        $('.addState').show();
+    }
+    else {
+        $('.states2').hide();
+        $('.removeState').hide();
+    }
 })
 
 $('.addState').on('click', function(e) {
     e.preventDefault();
-    $('.addState').hide();
+    if ($(".states2").is(":visible")) {
+        $('.states3').show();
+        $('.addState').hide();
+    }
     $('.states2, .removeState').show();
 });
 
 $('.submitbtn').on('click', function(e) {
     e.preventDefault();
+    $('.searchResults').empty();
     let search=($('.states option:selected').val());
     let search2=($('.states2 option:selected').val());
+    let search3=($('.states3 option:selected').val());
     let maxResults=$('.maxResults').val();
+    getResults(search, search2, search3, maxResults);
+});
 
-    getResults(search, search2, maxResults);
+$('.resetbtn').on('click', function() {
+    $('.searchResults').hide();
+    $('.maxResults').val(10)
+    $('option').prop('selected', function() {
+        return this.defaultSelected;
+    });
+    $('.states2, .states3, .removeState').hide();
+    $('.addState').show(); 
 });
 
 /* 

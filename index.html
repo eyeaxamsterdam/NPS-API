@@ -12,24 +12,35 @@
     <header>
         <h1>Find National Parks by State</h1>
     </header>
-    <section="search">
+    <section class="search">
         <h2>Select state:</h2>
         <form>
-            <select class="states" required>
-                <option value="">Select a State</option>
-            </select>
-            <select class="states2">
-                <option value="">Select a State</option>
-            </select>
-            <button class="addState">Add another state</button>
-            <button class="removeState">remove selection</button>
+            <div class=inputs>
+                <div class="selections">
+                    <select class="states" required>
+                        <option value="">Select a State</option>
+                    </select>
+                    <select class="states2">
+                        <option value="">Select a State</option>
+                    </select>
+                    <select class="states3">
+                        <option value="">Select a State</option>
+                    </select>
+                </div>
+                <div>
+                    <input class="maxResults" type="text" value="10">
+                </div>
+                <div class="addremove">
+                    <button class="addState">Add another state</button>
+                    <button class="removeState">remove selection</button>
+                </div>
+                <input class="btn resetbtn" type="button" value="reset">
+            </div>
             <input class="btn submitbtn" type="submit" value="submit">
-            <input class="btn resetbtn" type="button" value="reset">
-            <input class="maxResults" type="text" value="10">
         </form>
     </section>
-    <section>
-        <h2 class>results</h2>
+    <section class="searchResults">
+        <h2 class>Results</h2>
         <p class="results"></p>
     </section>
     <main id="results"> 

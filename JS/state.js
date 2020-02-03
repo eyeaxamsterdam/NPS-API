@@ -8,5 +8,5 @@ const abrvlist = ['AL', 'AK', 'AS', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'DC', 'F
 
 
 for (let i=0; i < statelist.length; i++) {
-    $('.states, .states2').append(`<option value="${abrvlist[i]}">${statelist[i]}</option>`);
+    $('.states, .states2, .states3').append(`<option value="${abrvlist[i]}">${statelist[i]}</option>`);
 }
