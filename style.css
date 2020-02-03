@@ -103,10 +103,14 @@ h1 {
 }
 
 @media (min-width: 768px) {
+    html {
+        max-width: 1000px;
+        margin:0 auto;
+    }
     .inputs {
         display: flex;
         flex-direction: row;
-        justify-content: space-evenly;
+        justify-content: center;
     }
     .flex {
         display: flex;
@@ -118,4 +122,10 @@ h1 {
     .states, .states2, .states3 {
         height: 20px;
     }
+
+    .selections, .addremove {
+        width: 33.33333%;
+    }
+
+    
 }
