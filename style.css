@@ -1,4 +1,4 @@
-*, *::after, I*::before {
+*, *::after, *::before {
     box-sizing: border-box;
 }
 
@@ -10,10 +10,14 @@ form {
     display: flex;
     flex-direction: column;
 }
+
 .states2, .states3, .removeState {
     display: none;
 }
 
+form p {
+    margin: 5px;
+}
 
 .selections {
     display: flex;
@@ -23,7 +27,8 @@ form {
 .inputs {
     display: flex;
     justify-content: space-around;
-    align-items: center;
+    align-items: flex-end;
+    flex-wrap: wrap;
 }
 
 .submitreset {
@@ -43,3 +48,18 @@ form {
     text-align: center;
 }
 
+h1 {
+    text-align: center;
+}
+
+.results {
+    text-align: center;
+    display: none;
+}
+
+.red {
+    color: red;
+    text-align: center;
+}
+
+@media

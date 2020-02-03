@@ -13,21 +13,22 @@
         <h1>Find National Parks by State</h1>
     </header>
     <section class="search">
-        <h2>Select state:</h2>
-        <form>
+        <form action="#">
             <div class=inputs>
                 <div class="selections">
-                    <select class="states" required>
-                        <option value="">Select a State</option>
+                    <p>Choose up to 3 states:</p>
+                    <select required class="states">
+                        <option value="">1. Select a State</option>
                     </select>
                     <select class="states2">
-                        <option value="">Select a State</option>
+                        <option value="">2. Select a State</option>
                     </select>
                     <select class="states3">
-                        <option value="">Select a State</option>
+                        <option value="">3. Select a State</option>
                     </select>
                 </div>
                 <div>
+                    <p>Display up to 50 results:</p>
                     <input class="maxResults" type="text" value="10">
                 </div>
                 <div class="addremove">
@@ -39,10 +40,10 @@
             <input class="btn submitbtn" type="submit" value="submit">
         </form>
     </section>
-    <section class="searchResults">
-        <h2 class>Results</h2>
-        <p class="results"></p>
-    </section>
+    <main>
+        <h2 class="results">Results</h2>
+        <p class="searchresults"></p>
+    </main>
     <main id="results"> 
 
     </main>

@@ -8,13 +8,14 @@ function getResults(search, search2, search3, maxResults) {
     fetch(`${url}?stateCode=${search},${search2},${search3}&limit=${maxResults}&api_key=${apikey}`)
     .then(response => response.json())
     .then (json => {
-        console.log(json);
+        $('.results').show();
         for (let i=0; i < json.data.length; i++) {
+            const location = json.data[i].states;
             const results = json.data[i].fullName;
             const description = json.data[i].description;
             const website = json.data[i].url;
-
-            displayresults(results, description, website); 
+            displayresults(results, location, description, website); 
+            console.log(json);
         }
     })
     .catch(function(error) {
@@ -22,9 +23,11 @@ function getResults(search, search2, search3, maxResults) {
     });
 }
 
-function displayresults(results, description, website) {
+function displayresults(results, location, description, website) {
+
     $('.searchresults').append(`<h3>${results}</h3>
-    <p>${description}</p><p><a href="${website}" target="_blank">Park Website</a></p>`)
+        <h4>State(s): ${location}</h4>
+        <p>${description}</p><p><a href="${website}" target="_blank">Park Website</a></p>`);
 }
 
 
@@ -49,26 +52,28 @@ $('.addState').on('click', function(e) {
     $('.states2, .removeState').show();
 });
 
-$('.submitbtn').on('click', function(e) {
-    e.preventDefault();
-    $('.searchResults').empty();
+$('.submitbtn').on('click', function() {
     let search=($('.states option:selected').val());
     let search2=($('.states2 option:selected').val());
     let search3=($('.states3 option:selected').val());
     let maxResults=$('.maxResults').val();
-    getResults(search, search2, search3, maxResults);
+    $('.searchresults').empty();
+    if (search=="") {
+        $('.searchresults').hide();
+    }
+    else {
+        $('.results, .searchresults').show();
+        getResults(search, search2, search3, maxResults);
+    }
 });
 
 $('.resetbtn').on('click', function() {
-    $('.searchResults').hide();
+    $('.searchresults').empty();
     $('.maxResults').val(10)
     $('option').prop('selected', function() {
         return this.defaultSelected;
     });
     $('.states2, .states3, .removeState').hide();
     $('.addState').show(); 
+    $('.results').hide();
 });
-
-/* 
-if states val === states2 val alert (select 2 different states)
-if states(2) index is 0 alert please select a state */
