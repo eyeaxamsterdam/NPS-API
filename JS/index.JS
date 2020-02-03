@@ -58,6 +58,9 @@ $('.submitbtn').on('click', function() {
     let search3=($('.states3 option:selected').val());
     let maxResults=$('.maxResults').val();
     $('.searchresults').empty();
+    if (maxResults > 50 || maxResults < 0) {
+        alert('Please select a number from 1-50.')
+    }
     if (search=="") {
         $('.searchresults').hide();
     }
