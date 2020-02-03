@@ -61,7 +61,7 @@ $('.submitbtn').on('click', function() {
     if (search=="") {
         $('.searchresults').hide();
     }
-    else if (search === search2 || search===search3 || search2===search3) {
+    else if (search === search2 || search===search3 || search2 !== '' && search2 === search3) {
         alert('Two or more of your selections are the same. Please change one or more of your selections.');
         $('.searchresults').hide();
     }
