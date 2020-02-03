@@ -2,6 +2,10 @@
     box-sizing: border-box;
 }
 
+html {
+    margin: 0 10px;
+}
+
 option {
     text-align: center;
 }
@@ -9,6 +13,7 @@ option {
 form {
     display: flex;
     flex-direction: column;
+    align-items: space-around;
 }
 
 .states2, .states3, .removeState {
@@ -17,18 +22,35 @@ form {
 
 form p {
     margin: 5px;
+    font-size: 15px;
+    text-align: center;
 }
 
-.selections {
+form .selections {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
 }
 
-.inputs {
+.states, .states2, .states3, .addState, .removeState, .resetbtn {
+    height: 40px;
+    margin: 8px;
+}
+
+.maxResults {
+    width: 10%;
+    text-align: center;
+    height: 30px;
+    padding-right: 2px;
+}
+
+.resetsubmit {
     display: flex;
-    justify-content: space-around;
-    align-items: flex-end;
-    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .submitreset {
@@ -36,16 +58,27 @@ form p {
     flex-direction: column;
 }
 
-.addremove {
-    display: flex;
-    flex-direction: column;
+.resetbtn {
+    width: 116px;
 }
 
 .submitbtn {
     width: 100px;
-    padding: 20px;
+    height: 50px;
     margin: 20px auto;
     text-align: center;
+    font-size: 24px;
+    background-color: orange;
+    color: white;
+}
+
+.submitbtn:focus {
+    background-color: rgb(87, 87, 190);
+}
+
+div .addremove {
+    display: flex;
+    flex-direction: column;
 }
 
 h1 {
@@ -62,4 +95,27 @@ h1 {
     text-align: center;
 }
 
-@media
+.flex {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (min-width: 768px) {
+    .inputs {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+    .flex {
+        display: flex;
+        flex-direction: column;
+    }
+    .maxResults {
+        width: 40px;
+    }
+    .states, .states2, .states3 {
+        height: 20px;
+    }
+}

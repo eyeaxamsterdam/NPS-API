@@ -15,8 +15,8 @@
     <section class="search">
         <form action="#">
             <div class=inputs>
-                <div class="selections">
-                    <p>Choose up to 3 states:</p>
+                <div class="flex selections">
+                    <p class="flex">Choose up to 3 states:</p>
                     <select required class="states">
                         <option value="">1. Select a State</option>
                     </select>
@@ -27,17 +27,19 @@
                         <option value="">3. Select a State</option>
                     </select>
                 </div>
-                <div>
+                <div class="flex">
                     <p>Display up to 50 results:</p>
                     <input class="maxResults" type="text" value="10">
                 </div>
-                <div class="addremove">
+                <div class="flex addremove">
                     <button class="addState">Add another state</button>
                     <button class="removeState">remove selection</button>
                 </div>
-                <input class="btn resetbtn" type="button" value="reset">
             </div>
-            <input class="btn submitbtn" type="submit" value="submit">
+            <div class="resetsubmit">
+                <input class="flex resetbtn" type="button" value="reset">
+                <input class="btn submitbtn" type="submit" value="submit">
+            </div>
         </form>
     </section>
     <main>
